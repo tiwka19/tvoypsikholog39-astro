@@ -1,0 +1,21 @@
+---
+import Education from '../components/Education.astro';
+import Greeting from '../components/Greeting.astro';
+import Hero from '../components/Hero.astro';
+import Pricing from '../components/Pricing.astro';
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Welcome to Astro.">
+  <main class="pt-32 overflow-clip">
+    <Hero />
+    <Greeting />
+    <Pricing
+      price_individual={1200}
+      time_individual="50 мин"
+      price_therapeutic={1500}
+      time_therapeutic="3 часа"
+    />
+    <Education />
+  </main>
+</Layout>

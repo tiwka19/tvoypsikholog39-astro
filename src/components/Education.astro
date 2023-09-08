@@ -1,0 +1,38 @@
+---
+import { Image } from 'astro:assets';
+
+const educations = [
+  { url: await import('../assets/education/education-1.png'), alt: 'education' },
+  { url: await import('../assets/education/education-2.png'), alt: 'education' },
+  { url: await import('../assets/education/education-4.jpg'), alt: 'education' },
+  { url: await import('../assets/education/education-5.jpg'), alt: 'education' },
+  { url: await import('../assets/education/education-7.jpg'), alt: 'education' },
+  { url: await import('../assets/education/education-3.png'), alt: 'education' },
+  { url: await import('../assets/education/education-6.jpg'), alt: 'education' },
+];
+---
+
+<div class="container px-5 py-20">
+  <h2 class="text-4xl xl:text-5xl mb-5 text-center">Образование</h2>
+  <div class="columns-3">
+    {
+      educations.map((education) => (
+        <Image
+          src={education.url.default}
+          class="w-full mb-3 rounded-xl cursor-pointer"
+          quality={100}
+          format="webp"
+          data-fancybox
+          data-caption={education.alt}
+          alt="education"
+        />
+      ))
+    }
+  </div>
+</div>
+
+<script>
+  import { Fancybox } from '@fancyapps/ui';
+  import '@fancyapps/ui/dist/fancybox/fancybox.css';
+  Fancybox.bind('[data-fancybox]', {});
+</script>
