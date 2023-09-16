@@ -10,15 +10,17 @@ import '@fontsource/raleway/400.css';
 import '@fontsource/raleway/500.css';
 import '@fontsource/raleway/700.css';
 
-import Themes from 'astro-themes';
+import '../base.css';
+import { ViewTransitions } from 'astro:transitions';
 
+import Themes from 'astro-themes';
 import Header from '../components/Header.astro';
 ---
 
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
-    <Themes />
+    <ViewTransitions />
     <meta charset="UTF-8" />
     <meta name="description" content="Astro description" />
     <meta name="viewport" content="width=device-width" />
@@ -29,16 +31,5 @@ import Header from '../components/Header.astro';
   <body class="bg-white dark:bg-gray-900 transition-colors">
     <Header />
     <slot />
-    <!-- <div>
-      <button onclick="document.dispatchEvent(new CustomEvent('set-theme', { detail: 'light' }));">
-        Light
-      </button>
-      <button onclick="document.dispatchEvent(new CustomEvent('set-theme', { detail: 'dark' }));">
-        Dark
-      </button>
-      <button onclick="document.dispatchEvent(new CustomEvent('set-theme', { detail: null }))">
-        Clear theme
-      </button>
-    </div> -->
   </body>
 </html>

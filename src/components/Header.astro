@@ -4,19 +4,17 @@ import { Image } from 'astro:assets';
 import logo from '../assets/logo.svg';
 ---
 
-<header class="fixed bg-white dark:bg-gray-900 z-50 top-0 left-0 w-full">
-  <Astronav>
+<header class="fixed transition-all dark:bg-gray-900 z-[100] top-0 left-0 w-full">
+  <Astronav closeOnClick>
     <div class="container px-5 py-3">
       <div class="flex justify-between items-center">
         <div class="flex w-full justify-between">
           <div class="flex items-center gap-3">
-            <div class="block lg:hidden z-10">
-              <MenuIcon class="w-7 h-7 text-gray-800" />
-            </div>
+            <div class="block lg:hidden z-50"><MenuIcon class="w-7 h-7 text-gray-800" /></div>
             <a class="flex items-center gap-3 z-10">
               <Image src={logo} alt="logo" />
               <div class="flex flex-col">
-                <span class="font-semibold text-xl">Арсланова Виктория</span>
+                <span class="font-semibold text-xl font-sans">Арсланова Виктория</span>
                 <span class="tracking-widest font-body">Твой психолог</span>
               </div>
             </a>
@@ -25,22 +23,49 @@ import logo from '../assets/logo.svg';
         <MenuItems
           class="hidden absolute top-0 left-0 z-5 w-full h-screen pt-32 lg:pt-0 lg:h-auto bg-white lg:bg-transparent lg:relative bg-transparent lg:flex flex-auto justify-end">
           <ul class="flex flex-col items-center gap-8 lg:flex-row lg:gap-5 text-xl">
-            <li class="hover:text-green-500 transition-colors uppercase lg:normal-case font-body">
+            <li class="hover:text-[#70b6ef] transition-colors uppercase lg:normal-case font-body">
               <a href="#">Обо мне</a>
             </li>
-            <li class="hover:text-green-500 transition-colors uppercase lg:normal-case font-body">
+            <li class="hover:text-[#70b6ef] transition-colors uppercase lg:normal-case font-body">
               <a href="#">Образование</a>
             </li>
-            <li class="hover:text-green-500 transition-colors uppercase lg:normal-case font-body">
+            <li class="hover:text-[#70b6ef] transition-colors uppercase lg:normal-case font-body">
               <a href="#">Отзывы</a>
             </li>
           </ul>
         </MenuItems>
-        <div
-          class="border-2 ml-5 rounded-tl-3xl rounded-br-3xl border-green-500 px-7 hover:bg-green-500 hover:text-white hover:rounded-3xl transition-all hidden sm:block">
-          <a href="#" class="text-xl font-body">Контакты</a>
-        </div>
+
+        <a
+          href="#"
+          class="text-xl font-body border-2 ml-5 rounded-tl-3xl rounded-br-3xl border-primary px-7 hover:bg-primary hover:text-white hover:rounded-3xl transition-all hidden sm:block"
+          >Контакты</a
+        >
       </div>
     </div>
   </Astronav>
 </header>
+
+<script>
+  let scrollpos = window.scrollY;
+
+  const header = document.querySelector('header') as HTMLElement;
+  const scrollChange = 1;
+
+  const add_class_on_scroll = () => {
+    header.classList.add('shadow-lg');
+    header.classList.add('bg-white');
+  };
+  const remove_class_on_scroll = () => {
+    header.classList.remove('shadow-lg');
+    header.classList.remove('bg-white');
+  };
+
+  window.addEventListener('scroll', function () {
+    scrollpos = window.scrollY;
+    if (scrollpos >= scrollChange) {
+      add_class_on_scroll();
+    } else {
+      remove_class_on_scroll();
+    }
+  });
+</script>

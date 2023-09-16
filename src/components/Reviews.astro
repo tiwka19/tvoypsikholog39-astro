@@ -1,0 +1,73 @@
+---
+import { Image } from 'astro:assets';
+import { Icon } from 'astro-icon';
+
+const reviews = [
+  { url: await import('../assets/reviews/reviews-1.png'), alt: 'education' },
+  { url: await import('../assets/reviews/reviews-2.png'), alt: 'education' },
+  { url: await import('../assets/reviews/reviews-3.png'), alt: 'education' },
+  { url: await import('../assets/reviews/reviews-4.png'), alt: 'education' },
+  { url: await import('../assets/reviews/reviews-5.png'), alt: 'education' },
+
+  { url: await import('../assets/reviews/reviews-1.png'), alt: 'education' },
+  { url: await import('../assets/reviews/reviews-2.png'), alt: 'education' },
+  { url: await import('../assets/reviews/reviews-3.png'), alt: 'education' },
+  { url: await import('../assets/reviews/reviews-4.png'), alt: 'education' },
+  { url: await import('../assets/reviews/reviews-5.png'), alt: 'education' },
+];
+---
+
+<section class="container px-5 py-10">
+  <h2 class="text-4xl xl:text-5xl mb-5 text-center">Отзывы</h2>
+  <div class="embla">
+    <div class="embla__viewport mb-5">
+      <div class="embla__container">
+        {
+          reviews.map((review) => (
+            <div class="embla__slide flex-[0_0_100%] sm:flex-[0_0_50%] md:flex-[0_0_32%] lg:flex-[0_0_24%] relative min-w-0">
+              <Image
+                class="embla__slide__img max-w-sm sm:max-w-full mx-auto"
+                quality={100}
+                src={review.url.default}
+                alt={review.alt}
+              />
+            </div>
+          ))
+        }
+      </div>
+    </div>
+    <div class="embla__buttons flex justify-center items-center gap-5">
+      <button
+        class="embla__button embla__button--prev rounded-full border-2 group hover:bg-[#b5eac8] border-[#B5EAC8]"
+        type="button"
+        disabled="">
+        <Icon
+          name="ion:arrow-up"
+          class="w-10 h-10 -rotate-90 text-[#8ad1a4] group-hover:text-[#FFF]"
+        />
+      </button>
+      <button
+        class="embla__button embla__button--next rounded-full border-2 group hover:bg-[#b5eac8] border-[#B5EAC8]"
+        type="button"
+        disabled="">
+        <Icon
+          name="ion:arrow-up"
+          class="w-10 h-10 rotate-90 text-[#8ad1a4] group-hover:text-[#FFF]"
+        />
+      </button>
+    </div>
+  </div>
+</section>
+
+<style>
+  .embla__viewport {
+    overflow: hidden;
+  }
+  .embla__container {
+    backface-visibility: hidden;
+    display: flex;
+    gap: 15px;
+  }
+</style>
+
+<script src="../scripts/embla/index.ts"></script>
