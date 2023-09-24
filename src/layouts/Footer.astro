@@ -1,0 +1,49 @@
+---
+import Icon from 'astro-icon';
+import { Image } from 'astro:assets';
+---
+
+<div class="container px-5 py-10">
+  <div class="flex flex-col lg:flex-row justify-between items-center gap-5">
+    <a class="flex items-center gap-3 z-10">
+      <Image src={import('../assets/logo.svg')} class="w-[50px]" alt="logo" />
+      <div class="flex flex-col">
+        <span class="font-semibold text-2xl font-sans">Арсланова Виктория</span>
+        <span class="tracking-widest font-body">Твой психолог</span>
+      </div>
+    </a>
+    <nav class="flex-auto">
+      <ul class="flex items-center gap-5 justify-center text-lg sm:text-xl">
+        <li class="hover:text-[#70b6ef] transition-colors font-body">
+          <a href="#">Обо мне</a>
+        </li>
+        <li class="hover:text-[#70b6ef] transition-colors font-body">
+          <a href="#">Образование</a>
+        </li>
+        <li class="hover:text-[#70b6ef] transition-colors font-body">
+          <a href="#">Отзывы</a>
+        </li>
+      </ul>
+    </nav>
+    <ul class="flex items-center gap-3">
+      <li class="hover:scale-105 transition-transform">
+        <a href="#"><Icon name="viber" class="w-10 h-10" /></a>
+      </li>
+      <li class="hover:scale-105 transition-transform">
+        <a href="#"><Icon name="whatsapp" class="w-10 h-10" /></a>
+      </li>
+      <li class="hover:scale-105 transition-transform">
+        <a href="#"><Icon name="telegram" class="w-10 h-10" /></a>
+      </li>
+      <li class="hover:scale-105 transition-transform">
+        <a href="#"><Icon name="dzen" class="w-10 h-10" /></a>
+      </li>
+      <li class="hover:scale-105 transition-transform">
+        <a href="#"><Icon name="instagram" class="w-10 h-10" /></a>
+      </li>
+      <li class="hover:scale-105 transition-transform">
+        <a href="#"><Icon name="vk" class="w-10 h-10" /></a>
+      </li>
+    </ul>
+  </div>
+</div>

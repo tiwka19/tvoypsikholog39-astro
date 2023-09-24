@@ -14,11 +14,12 @@ import '../base.css';
 import { ViewTransitions } from 'astro:transitions';
 
 import Themes from 'astro-themes';
-import Header from '../components/Header.astro';
+import Header from './Header.astro';
+import Footer from './Footer.astro';
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
   <head>
     <ViewTransitions />
     <meta charset="UTF-8" />
@@ -31,5 +32,6 @@ import Header from '../components/Header.astro';
   <body class="bg-white dark:bg-gray-900 transition-colors">
     <Header />
     <slot />
+    <Footer />
   </body>
 </html>

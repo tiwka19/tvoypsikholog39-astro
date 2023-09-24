@@ -1,0 +1,85 @@
+---
+import { Astronav, MenuIcon, OpenIcon, CloseIcon, MenuItems } from 'astro-navbar';
+import { Image } from 'astro:assets';
+import logo from '../assets/logo.svg';
+import Icon from 'astro-icon';
+
+const links = [
+  { url: '#greeting', label: 'Обо мне' },
+  { url: '#reviews', label: 'Отзывы' },
+  { url: '#education', label: 'Образование' },
+  { url: '#contacts', label: 'Контакты' },
+];
+---
+
+<header class="fixed transition-all dark:bg-gray-900 z-[100] top-0 left-0 w-full">
+  <Astronav closeOnClick>
+    <div class="container px-5 py-3">
+      <div class="flex justify-between items-center">
+        <div class="flex w-full justify-between">
+          <a class="flex items-center gap-3 z-10">
+            <Image src={logo} alt="logo" />
+            <div class="flex flex-col">
+              <span class="font-semibold text-xl font-sans">Арсланова Виктория</span>
+              <span class="tracking-widest font-body">Твой психолог</span>
+            </div>
+          </a>
+        </div>
+        <MenuItems
+          class="hidden absolute top-0 left-0 z-5 h-screen pt-32 lg:pt-0 lg:h-auto bg-white lg:bg-transparent lg:relative bg-transparent lg:flex flex-auto w-full justify-end">
+          <ul class="flex flex-col items-center gap-8 lg:flex-row lg:gap-5 text-xl">
+            {
+              links.map((link) => (
+                <li class="hover:text-[#70b6ef] transition-colors whitespace-nowrap uppercase lg:normal-case font-body">
+                  <a href={link.url}>{link.label}</a>
+                </li>
+              ))
+            }
+          </ul>
+        </MenuItems>
+        <div class="flex items-center gap-2">
+          <a
+            href="#"
+            class="text-xl font-body border-2 ml-5 rounded-tl-3xl rounded-br-3xl border-primary px-7 hover:bg-primary hover:text-white hover:rounded-3xl transition-all hidden sm:block"
+            >Контакты</a
+          >
+          <div class="block lg:hidden z-50">
+            <MenuIcon>
+              <OpenIcon>
+                <Icon name="ep:menu" class="w-8 h-8 text-[#365B44]" />
+              </OpenIcon>
+              <CloseIcon>
+                <Icon name="ion:close" class="w-8 h-8 text-base" />
+              </CloseIcon>
+            </MenuIcon>
+          </div>
+        </div>
+      </div>
+    </div>
+  </Astronav>
+</header>
+
+<script>
+  let scrollpos = window.scrollY;
+
+  const header = document.querySelector('header') as HTMLElement;
+  const scrollChange = 1;
+
+  const add_class_on_scroll = () => {
+    header.classList.add('shadow-lg');
+    header.classList.add('bg-white');
+  };
+  const remove_class_on_scroll = () => {
+    header.classList.remove('shadow-lg');
+    header.classList.remove('bg-white');
+  };
+
+  window.addEventListener('scroll', function () {
+    scrollpos = window.scrollY;
+    if (scrollpos >= scrollChange) {
+      add_class_on_scroll();
+    } else {
+      remove_class_on_scroll();
+    }
+  });
+</script>

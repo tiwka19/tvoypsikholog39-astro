@@ -1,0 +1,37 @@
+---
+import { Image } from 'astro:assets';
+
+const educations = [
+  { url: await import('../assets/room/1.png'), alt: 'education' },
+  { url: await import('../assets/room/2.png'), alt: 'education' },
+  { url: await import('../assets/room/3.png'), alt: 'education' },
+  { url: await import('../assets/room/4.png'), alt: 'education' },
+  { url: await import('../assets/room/5.png'), alt: 'education' },
+  { url: await import('../assets/room/6.png'), alt: 'education' },
+  { url: await import('../assets/room/7.png'), alt: 'education' },
+  { url: await import('../assets/room/8.png'), alt: 'education' },
+  { url: await import('../assets/room/9.png'), alt: 'education' },
+  { url: await import('../assets/room/10.png'), alt: 'education' },
+  { url: await import('../assets/room/12.png'), alt: 'education' },
+  { url: await import('../assets/room/11.png'), alt: 'education' },
+];
+---
+
+<section class="container px-5 py-10 mb-10">
+  <h2 class="text-4xl xl:text-5xl mb-5 text-center">Фото</h2>
+  <div class="columns sm:columns-2 md:columns-4">
+    {
+      educations.map((education, index) => (
+        <Image
+          src={education.url.default}
+          class={`w-full rounded-xl object-cover cursor-pointer mb-3 ${
+            index === 9 ? 'aspect-video' : ''
+          }`}
+          quality={100}
+          format="avif"
+          alt={index.toString()}
+        />
+      ))
+    }
+  </div>
+</section>

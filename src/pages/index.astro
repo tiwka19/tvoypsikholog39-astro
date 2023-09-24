@@ -7,7 +7,8 @@ import Pricing from '../components/Pricing.astro';
 import Reviews from '../components/Reviews.astro';
 import Map from '../components/Map.astro';
 import Layout from '../layouts/Layout.astro';
-import Contacts from '../components/Contacts.astro'
+import Contacts from '../components/Contacts.astro';
+import Room from '../components/Room.astro'
 ---
 
 <Layout title="Welcome to Astro.">
@@ -15,7 +16,7 @@ import Contacts from '../components/Contacts.astro'
     <Hero />
     <Greeting />
     <Pricing
-      price_individual={1200}
+      price_individual={2000}
       time_individual="50 мин"
       price_therapeutic={1500}
       time_therapeutic="3 часа"
@@ -23,7 +24,8 @@ import Contacts from '../components/Contacts.astro'
     <Helps />
     <Reviews />
     <Education />
-    <Map />
     <Contacts />
+    <Room />
+    <Map />
   </main>
 </Layout>
