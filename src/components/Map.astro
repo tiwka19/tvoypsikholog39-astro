@@ -1,13 +1,13 @@
 <h2 class="text-4xl xl:text-5xl mb-5 text-center px-5">г. Калининград, ул. Генделя, 3А</h2>
 <div class="map__block h-[500px] w-full mb-20" id="map"></div>
 
-<script
-  is:inline
-  src="https://api-maps.yandex.ru/2.1/?apikey=59037372-5663-482e-9a7d-56426e4a0f94&load=package.map&lang=ru_RU"
-></script>
-
-<script is:inline>
-ymaps.ready(function () {
+<script defer>
+setTimeout(function () {
+	let elem = document.createElement('script')
+	elem.src ='https://api-maps.yandex.ru/2.1/?apikey=59037372-5663-482e-9a7d-56426e4a0f94&lang=ru_RU&onload=init'
+	document.getElementsByTagName('body')[0].appendChild(elem)
+}, 1000)
+function init() {
 	const myMap = new ymaps.Map('map', {
 		controls: [],
 		center: [54.72165, 20.496563],
@@ -24,14 +24,22 @@ ymaps.ready(function () {
 			hideIconOnBalloonOpen: true,
 		},
 		{
+			// Необходимо указать данный тип макета.
 			iconLayout: 'default#imageWithContent',
+			// Своё изображение иконки метки.
 			iconImageHref: '/map.svg',
+			// Размеры метки.
 			iconImageSize: [40, 40],
+			// Смещение левого верхнего угла иконки относительно
+			// её "ножки" (точки привязки).
 			iconImageOffset: [-20, -20],
+			// Смещение слоя с содержимым относительно слоя с картинкой.
 			iconContentOffset: [0, 0],
 		},
 	)
 	myMap.geoObjects.add(myPlacemark)
 	myMap.behaviors.disable('scrollZoom')
-})
+}
 </script>
+
+
