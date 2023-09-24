@@ -8,24 +8,25 @@ import Reviews from '../components/Reviews.astro';
 import Map from '../components/Map.astro';
 import Layout from '../layouts/Layout.astro';
 import Contacts from '../components/Contacts.astro';
-import Room from '../components/Room.astro'
+import Room from '../components/Room.astro';
 ---
 
-<Layout title="Welcome to Astro.">
+<Layout title="Виктория Арсланова - Твои Психолог">
   <main class="pt-32 overflow-clip">
     <Hero />
     <Greeting />
+    <Helps />
     <Pricing
       price_individual={2000}
       time_individual="50 мин"
       price_therapeutic={1500}
       time_therapeutic="3 часа"
     />
-    <Helps />
+    <Room />
     <Reviews />
     <Education />
     <Contacts />
-    <Room />
+
     <Map />
   </main>
 </Layout>

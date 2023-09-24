@@ -1,19 +1,12 @@
 ---
-interface Props {
-  title: string;
-}
-
-const { title } = Astro.props;
-
 import '@fontsource-variable/el-messiri';
 import '@fontsource/raleway/400.css';
 import '@fontsource/raleway/500.css';
 import '@fontsource/raleway/700.css';
 
+import { Seo } from 'astro-seo-meta';
 import '../base.css';
-import { ViewTransitions } from 'astro:transitions';
 
-import Themes from 'astro-themes';
 import Header from './Header.astro';
 import Footer from './Footer.astro';
 ---
@@ -21,13 +14,9 @@ import Footer from './Footer.astro';
 <!doctype html>
 <html lang="en" class="scroll-smooth">
   <head>
-    <ViewTransitions />
     <meta charset="UTF-8" />
-    <meta name="description" content="Astro description" />
     <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="generator" content={Astro.generator} />
-    <title>{title}</title>
+    <Seo title="Виктория Арсланова - Твои Психолог" description="My fast astro website" icon="favicon.ico" />
   </head>
   <body class="bg-white dark:bg-gray-900 transition-colors">
     <Header />

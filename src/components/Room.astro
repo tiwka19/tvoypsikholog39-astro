@@ -17,18 +17,16 @@ const educations = [
 ];
 ---
 
-<section class="container px-5 py-10 mb-10">
+<section class="container px-3.5 py-10 mb-10">
   <h2 class="text-4xl xl:text-5xl mb-5 text-center">Фото</h2>
   <div class="columns sm:columns-2 md:columns-4">
     {
       educations.map((education, index) => (
         <Image
           src={education.url.default}
-          class={`w-full rounded-xl object-cover cursor-pointer mb-3 ${
-            index === 9 ? 'aspect-video' : ''
-          }`}
+          class={`w-full rounded-xl object-cover mb-3 ${index === 9 ? 'aspect-video' : ''}`}
           quality={100}
-          format="avif"
+          format="webp"
           alt={index.toString()}
         />
       ))

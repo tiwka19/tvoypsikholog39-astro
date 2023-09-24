@@ -3,23 +3,23 @@ import { Image } from 'astro:assets';
 import { Icon } from 'astro-icon';
 
 const helps = [
-  { link: '#', label: 'г. Калининград, ул. Генделя, 3А', icon: 'baseline-location-on' },
-  { link: '#', label: '8 (911) 491 88-54', icon: 'baseline-phone' },
-  { link: '#', label: 'tvoypsikholog39@mail.ru', icon: 'baseline-email' },
-  { link: '#', label: 'WhatsApp', icon: 'baseline-whatsapp' },
+  { link: 'https://yandex.ru/maps/?text=г.Калининград,ул.Генделя,3А', label: 'г. Калининград, ул. Генделя, 3А', icon: 'baseline-location-on' },
+  { link: 'tel:89114918854', label: '8 (911) 491 88-54', icon: 'baseline-phone' },
+  { link: 'mailto:tvoypsikholog39@mail.ru', label: 'tvoypsikholog39@mail.ru', icon: 'baseline-email' },
+  { link: 'https://wa.me/89114918854', label: 'WhatsApp', icon: 'baseline-whatsapp' },
 ];
 
 const socials = [
-  { link: '#', icon: 'cib:telegram-plane' },
-  { link: '#', icon: 'ri:instagram-line' },
-  { link: '#', icon: 'fa:vk' },
+  { link: 'https://t.me/ArslanovaViktoriya', icon: 'cib:telegram-plane' },
+  { link: 'https://instagram.com/svetlaya_vikki?igshid=YmMyMTA2M2Y=', icon: 'ri:instagram-line' },
+  { link: 'https://vk.com/svetlaya_vikki', icon: 'fa:vk' },
 ];
 ---
 
-<section class="container px-5 py-10 scroll-mt-14" id="contacts">
+<section class="container px-3.5 py-10 scroll-mt-14" id="contacts">
   <h2 class="text-4xl xl:text-5xl mb-5 text-center">Контакты</h2>
   <div
-    class="flex flex-col lg:flex-row items-center lg:items-end justify-between pt-5 border-4 border-primary rounded-lg">
+    class="flex flex-col lg:flex-row gap-5 items-center lg:items-end justify-between pt-5 border-4 border-primary rounded-lg">
     <div class="p-6 lg:p-12">
       <h3 class="text-3xl lg:text-4xl lg:whitespace-nowrap mb-5">
         Запишитесь или задайте мне вопрос
@@ -31,21 +31,22 @@ const socials = [
               <div class="w-[36px] h-[36px] bg-primary p-2 grid place-items-center place-content-center rounded-full">
                 <Icon name={`ic:${help.icon}`} class="w-7 h-7 text-white" />
               </div>
-              <a href={help.link} class="text-xl hover:text-[#70b6ef] transition-colors">
+              <a href={help.link} target='_blank' class="text-xl hover:text-[#70b6ef] transition-colors">
                 {help.label}
               </a>
             </li>
           ))
         }
       </ul>
-      <div>
+      <div class="mb-5">
         <h3 class="text-3xl mb-5">Дополнительные контакты</h3>
         <ul class="mb-10 flex items-center gap-5">
           {
             socials.map((social) => (
               <li>
                 <a
-                  href="#"
+                  href={social.link}
+                  target='_blank'
                   class=" w-[45px] h-[45px] md:w-[60px] md:h-[60px] hover:scale-105 transition-transform  bg-primary p-2 grid place-items-center  rounded-full">
                   <Icon name={`${social.icon}`} class=" w-7 h-7 md:w-10 md:h-10 text-white" />
                 </a>
@@ -53,7 +54,14 @@ const socials = [
             ))
           }
         </ul>
-        <ul></ul>
+      </div>
+      <div class="flex items-center gap-5">
+        <a href="https://www.b17.ru/">
+          <Image src={import('../assets/b17.png')} alt="b17" class='rounded-full w-12 h-auto' />
+        </a>
+        <a href="https://www.b17.ru/arslanova_viktoriya/?prt=951016" target="_blank" class='text-lg hover:text-[#70b6ef]'>
+          Моя анкета на сайте психологов B17.ru
+        </a>
       </div>
     </div>
     <Image

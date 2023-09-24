@@ -3,7 +3,7 @@ import Icon from 'astro-icon';
 import { Image } from 'astro:assets';
 ---
 
-<div class="container px-5 py-10">
+<div class="container px-3.5 py-10">
   <div class="flex flex-col lg:flex-row justify-between items-center gap-5">
     <a class="flex items-center gap-3 z-10">
       <Image src={import('../assets/logo.svg')} class="w-[50px]" alt="logo" />
@@ -15,34 +15,31 @@ import { Image } from 'astro:assets';
     <nav class="flex-auto">
       <ul class="flex items-center gap-5 justify-center text-lg sm:text-xl">
         <li class="hover:text-[#70b6ef] transition-colors font-body">
-          <a href="#">Обо мне</a>
+          <a href="#greeting">Обо мне</a>
         </li>
         <li class="hover:text-[#70b6ef] transition-colors font-body">
-          <a href="#">Образование</a>
+          <a href="#education">Образование</a>
         </li>
         <li class="hover:text-[#70b6ef] transition-colors font-body">
-          <a href="#">Отзывы</a>
+          <a href="#reviews">Отзывы</a>
         </li>
       </ul>
     </nav>
     <ul class="flex items-center gap-3">
       <li class="hover:scale-105 transition-transform">
-        <a href="#"><Icon name="viber" class="w-10 h-10" /></a>
+        <a href="https://wa.me/89114918854" target='_blank'><Icon name="whatsapp" class="w-10 h-10" /></a>
       </li>
       <li class="hover:scale-105 transition-transform">
-        <a href="#"><Icon name="whatsapp" class="w-10 h-10" /></a>
+        <a href="https://t.me/ArslanovaViktoriya" target='_blank'><Icon name="telegram" class="w-10 h-10" /></a>
       </li>
       <li class="hover:scale-105 transition-transform">
-        <a href="#"><Icon name="telegram" class="w-10 h-10" /></a>
+        <a href="https://dzen.ru/id/623c811787c29a624f72ec4d" target='_blank'><Icon name="dzen" class="w-10 h-10" /></a>
       </li>
       <li class="hover:scale-105 transition-transform">
-        <a href="#"><Icon name="dzen" class="w-10 h-10" /></a>
+        <a href="https://instagram.com/svetlaya_vikki?igshid=YmMyMTA2M2Y=" target='_blank'><Icon name="instagram" class="w-10 h-10" /></a>
       </li>
       <li class="hover:scale-105 transition-transform">
-        <a href="#"><Icon name="instagram" class="w-10 h-10" /></a>
-      </li>
-      <li class="hover:scale-105 transition-transform">
-        <a href="#"><Icon name="vk" class="w-10 h-10" /></a>
+        <a href="https://vk.com/svetlaya_vikki" target='_blank'><Icon name="vk" class="w-10 h-10" /></a>
       </li>
     </ul>
   </div>
