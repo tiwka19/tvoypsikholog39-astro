@@ -26,8 +26,8 @@ const reviews = [
       <div class="embla__container">
         {
           reviews.map((review) => (
-            <div class="embla__slide flex-[0_0_100%] p-2 sm:flex-[0_0_50%] md:flex-[0_0_32%] lg:flex-[0_0_24%] relative min-w-0">
-              <Image quality={100} src={review.url.default} alt={review.alt} />
+            <div class="embla__slide cursor-pointer flex-[0_0_100%] p-2 sm:flex-[0_0_50%] md:flex-[0_0_32%] lg:flex-[0_0_24%] relative min-w-0">
+              <Image quality={100} src={review.url.default} data-fancybox alt={review.alt} />
             </div>
           ))
         }

@@ -23,4 +23,9 @@ import Footer from './Footer.astro';
     <slot />
     <Footer />
   </body>
+  <script>
+    import { Fancybox } from '@fancyapps/ui';
+    import '@fancyapps/ui/dist/fancybox/fancybox.css';
+    Fancybox.bind('[data-fancybox]', {});
+  </script>
 </html>

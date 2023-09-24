@@ -19,7 +19,11 @@ const helps = [
 
 const socials = [
   { link: 'https://t.me/ArslanovaViktoriya', icon: 'cib:telegram-plane', label: 'telegram' },
-  { link: 'https://instagram.com/svetlaya_vikki?igshid=YmMyMTA2M2Y=', icon: 'ri:instagram-line', label: 'instagram' },
+  {
+    link: 'https://instagram.com/svetlaya_vikki?igshid=YmMyMTA2M2Y=',
+    icon: 'ri:instagram-line',
+    label: 'instagram',
+  },
   { link: 'https://vk.com/svetlaya_vikki', icon: 'fa:vk', label: 'vk' },
 ];
 ---
@@ -69,7 +73,7 @@ const socials = [
         </ul>
       </div>
       <div class="flex items-center gap-5">
-        <a href="https://www.b17.ru/">
+        <a href="https://www.b17.ru/" aria-label="b17" target="_blank">
           <Image src={import('../assets/b17.png')} alt="b17" class="rounded-full w-12 h-auto" />
         </a>
         <a

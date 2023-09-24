@@ -24,9 +24,10 @@ const educations = [
       educations.map((education, index) => (
         <Image
           src={education.url.default}
-          class={`w-full rounded-xl object-cover mb-3 ${index === 9 ? 'aspect-video' : ''}`}
+          class={`w-full cursor-pointer rounded-xl object-cover mb-3 ${index === 9 ? 'aspect-video' : ''}`}
           quality={100}
           format="webp"
+          data-fancybox
           alt={index.toString()}
         />
       ))
