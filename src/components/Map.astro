@@ -2,11 +2,34 @@
 <div class="map__block h-[500px] w-full mb-20" id="map"></div>
 
 <script defer>
-setTimeout(function () {
-	let elem = document.createElement('script')
-	elem.src ='https://api-maps.yandex.ru/2.1/?apikey=59037372-5663-482e-9a7d-56426e4a0f94&lang=ru_RU&onload=init'
-	document.getElementsByTagName('body')[0].appendChild(elem)
-}, 1000)
+const mapElement = document.getElementById('map')
+
+const loadMap = () => {
+	if (!mapElement.classList.contains('js--loaded')) {
+		mapElement.classList.add('js--loaded')
+		if (typeof ymaps === 'undefined') {
+			const script = document.createElement('script')
+			script.src =
+				'https://api-maps.yandex.ru/2.1/?apikey=59037372-5663-482e-9a7d-56426e4a0f94&lang=ru_RU&onload=init'
+			script.onload = () => ymaps.ready(init)
+			script.onerror = () => console.log('error load ymaps')
+			document.head.appendChild(script)
+		} else {
+			ymaps.ready(init)
+		}
+	}
+}
+
+const handleIntersection = (entries) => {
+	if (entries[0].isIntersecting) {
+		loadMap()
+		iObserver.unobserve(entries[0].target)
+	}
+}
+
+const iObserver = new IntersectionObserver(handleIntersection, { threshold: [0] })
+iObserver.observe(mapElement)
+
 function init() {
 	const myMap = new ymaps.Map('map', {
 		controls: [],
@@ -41,5 +64,3 @@ function init() {
 	myMap.behaviors.disable('scrollZoom')
 }
 </script>
-
-
