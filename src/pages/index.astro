@@ -7,8 +7,8 @@ import Reviews from '../components/Reviews.astro';
 import Map from '../components/Map';
 import Layout from '../layouts/Layout.astro';
 import Contacts from '../components/Contacts.astro';
-import Office from '@components/Office.astro'
-import Education from '@components/Education.astro'
+import Office from '@components/Office.astro';
+import Education from '@components/Education.astro';
 ---
 
 <Layout title='Виктория Арсланова - Твои Психолог'>
@@ -16,13 +16,13 @@ import Education from '@components/Education.astro'
 		<Hero />
 		<Greeting />
 		<Helps />
-		<Office />
 		<Pricing
 			price_individual={2500}
 			time_individual='50 мин'
 			price_therapeutic={2000}
 			time_therapeutic='3 часа'
 		/>
+		<Office />
 		<Reviews />
 		<Education />
 		<Contacts />
